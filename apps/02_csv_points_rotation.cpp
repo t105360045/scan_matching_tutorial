@@ -1,12 +1,15 @@
 #include <iostream>
 #include <Eigen/Dense>
-#include<scan_matching/csv reader.hpp>
+#include <scan_matching/csv_reader.hpp>
 
 int main()
 {
-    Eigen::Matrix2Xd input_points;
-    readPointsFromCsv("../data/retangle_points10.csv",input_points);
-    Eigen::Matrix2Xd rot_points;
-    writePointToCsv("../data/retangle_points10.csv",rot_points)
+    Eigen::MatrixX2d input_points;
+    readPointsFromCsv("../data/rectangle_points10.csv",input_points);
+    
+    std::cout<<input_points<<std::endl;
+    
+    Eigen::MatrixX2d rotated_points=input_points;
+    writePointsToCsv("../data/rectangle_points10_rotated.csv",rotated_points);
     return 0;
 }
